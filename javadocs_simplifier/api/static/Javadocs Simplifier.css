@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+    --header-size: 10vh;
+    --footer-size: 8vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background: hsl(0, 0%, 16.9%);
+    font-size: 18px;
+    color: hsl(0, 0%, 95%);
+    font-family: 'Lato', sans-serif;
+}
+
+section[data-no-script] {
+    position: relative;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+header {
+    height: var(--header-size);
+    background: royalblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header > h2 {
+    text-shadow: 2px 2px black;
+}
+
+main {
+    --padding-top: 6.9vh;
+    min-height: calc(100% - calc(var(--header-size) + var(--footer-size)));
+    padding-top: var(--padding-top);
+    padding-bottom: 15px;
+}
+
+section[data-inputs],
+div[data-input-container],
+div[data-urls-container] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+}
+
+section[data-inputs],
+div[data-urls-container] {
+    flex-direction: column;
+}
+
+input[data-input] {
+    padding: 0.4em 0.3em;
+    font-size: 1.1rem;
+    width: 75vw;
+    max-width: 400px;
+    height: 2.5rem;
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    border: none;
+    background: #555;
+    color: hsl(0, 0%, 98%);
+    border-radius: 5px;
+}
+
+input[data-input]:focus,
+input[data-input]:active {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3px 5px hsl(0, 0%, 69%, 0.69);
+}
+
+button[data-add] {
+    height: 2.2rem;
+    padding: 0.2em 0.9em;
+    font-size: 1.1rem;
+    border-radius: 999px;
+    outline: none;
+    color: #0aa;
+    border: 2px solid #0aa;
+    background: transparent;
+}
+
+button[data-add]:focus,
+button[data-add]:focus-within,
+button[data-add]:hover {
+    background: #0aa;
+    color: black;
+    box-shadow: 0 0 2px 3px #0aab;
+}
+
+button[data-add]:active,
+button[data-add]:hover {
+    box-shadow: none;
+}
+div[data-urls-container] {
+    margin-top: 25px;
+}
+
+div[data-urls-container] > div {
+    font-size: 1.1em;
+    background: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    max-width: 400px;
+    height: 3rem;
+    padding-inline: 0.5em;
+    animation: create 800ms ease-in-out;
+    border-radius: 6.9px;
+}
+
+@keyframes create {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+div[data-urls-container] > div:hover {
+    box-shadow: 0 2px 1px 1px grey;
+}
+
+div[data-urls-container] > div > a,
+div[data-urls-container] > div > a:visited {
+    color: lightskyblue;
+}
+
+div[data-urls-container] > div > a:focus {
+    text-shadow: 1px 1px white;
+}
+
+div[data-urls-container] > div > button {
+    padding: 0.2em 0.9em;
+    border-radius: 999px;
+    outline: none;
+    color: hotpink;
+    border: 2px solid hotpink;
+    background: transparent;
+    font-size: 0.8em;
+}
+
+div[data-urls-container] > div > button:hover {
+    background: hotpink;
+    color: black;
+}
+
+button[data-generate] {
+    padding: 0.2em 0.9em;
+    border-radius: 999px;
+    outline: none;
+    color: #0AF;
+    border: 2px solid #0AF;
+    font-size: 1.3rem;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 690ms;
+}
+
+button[data-generate]:hover {
+    background: #0AF;
+    color: black;
+}
+
+section[data-results] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.8em;
+    margin-top: 15px;
+}
+
+section[data-results] > details {
+    width: 85vw;
+    overflow: auto;
+    max-width: 900px;
+}
+
+section[data-results] > details > summary {
+    width: 100%;
+    border: 3px solid grey;
+    padding: 0.5em 1em;
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    color: lightsteelblue;
+}
+
+section[data-results] > details > summary > span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 1em; */
+}
+
+section[data-results] > details > summary > span > button {
+    padding: 0.2em 0.4em;
+    font-size: 0.8em;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: hsl(0, 0%, 90%);
+}
+
+section[data-results] > details > summary > span > button:hover {
+    color: hsl(100, 50%, 50%);
+}
+
+section[data-results] > details > pre {
+    margin-top: 1.2rem;
+    padding-left: 1ch;
+    padding-right: 3ch;
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 269px;
+    border: 1px solid grey;
+    transform: scaleY(0);
+    transition: transform 400ms ease-in-out;
+    transform-origin: top;
+}
+section[data-results] > details > pre > code {
+    color: hsl(0, 0%, 75%);
+    font-size: 0.7em;
+    line-height: 1.1em;
+}
+
+section[data-results] > details[open] > pre {
+    transform: scaleY(1);
+}
+
+footer {
+    height: var(--footer-size);
+    background: hsl(0, 0%, 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width: 500px) {
+    section[data-results] {
+        gap: 1.5em;
+    }
+
+    section[data-results] > details > summary {
+        font-size: 1em;
+        padding: 0.5em 0.5em;
+    }
+}
