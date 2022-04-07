@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: javadocs_simplifier
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "py manage.py runserver"
